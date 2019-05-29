@@ -16,11 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
+    
 Route::group([
     "prefix"    => "tracker_record",
 ], function () {
     Route::post("store", "TrackerRecordController@store");
-    Route::get("user", "TrackerRecordController@user"); //by user or primary key
+    Route::get("user/{id}", "TrackerRecordController@user"); //by user or primary key
 });
