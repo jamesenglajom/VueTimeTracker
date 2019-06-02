@@ -1,19 +1,26 @@
 <template>
   <div class="time-tracker">
-    <div class="stop-watch">
-      <StopWatch />
-    </div>
+      <StopWatch @stop="logs.push($event)" />
+      <Logs :logs="logs" />
   </div>
 </template>
 
 <script>
-import StopWatch from './StopWatch';
+import StopWatch from './StopWatch'
+import Logs from './Logs'
+
 export default {
-  name: "TimeTracker",
+  name: 'TimeTracker',
   components: {
-    StopWatch
+    StopWatch,
+    Logs
+  },
+  data () {
+    return {
+      logs: []
+    }
   }
-};
+}
 </script>
 
 <style scoped>
